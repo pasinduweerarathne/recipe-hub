@@ -1,0 +1,60 @@
+<form (ngSubmit)="onSubmit()" class="w-[27rem] p-6 rounded-lg shadow-md">
+  <div class="mb-4">
+    <mat-form-field class="w-full">
+      <mat-label class="text-gray-200">Title</mat-label>
+      <input
+        matInput
+        placeholder="Title"
+        value=""
+        name="title"
+        [(ngModel)]="recipeItem.title"
+        class="py-2 px-3 text-gray-200"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label class="text-gray-200">Description</mat-label>
+      <input
+        matInput
+        placeholder="Description"
+        value=""
+        name="description"
+        [(ngModel)]="recipeItem.description"
+        class="py-2 px-3 text-gray-200"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label class="text-gray-200">Image</mat-label>
+      <input
+        matInput
+        placeholder="Image"
+        value=""
+        name="image"
+        [(ngModel)]="recipeItem.image"
+        class="py-2 px-3 text-gray-200"
+      />
+    </mat-form-field>
+
+    <mat-radio-group
+      name="foodType"
+      [(ngModel)]="recipeItem.foodType"
+      class="flex justify-around"
+    >
+      <mat-radio-button value="veg">Vegitarian</mat-radio-button>
+      <mat-radio-button value="non_veg">Non Vegitarian</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="flex justify-end gap-5">
+    <button mat-raised-button color="primary" type="submit">Create</button>
+    <button
+      (click)="closeDialog()"
+      mat-raised-button
+      color="accent"
+      class="text-black font-bold"
+    >
+      Close
+    </button>
+  </div>
+</form>
