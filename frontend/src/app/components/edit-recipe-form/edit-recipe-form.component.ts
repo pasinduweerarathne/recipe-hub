@@ -8,7 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-create-recipe-form',
+  selector: 'app-edit-recipe-form',
   standalone: true,
   imports: [
     FormsModule,
@@ -18,10 +18,10 @@ import { MatDialog } from '@angular/material/dialog';
     MatButtonModule,
     MatRadioModule,
   ],
-  templateUrl: './create-recipe-form.component.html',
-  styleUrl: './create-recipe-form.component.scss',
+  templateUrl: './edit-recipe-form.component.html',
+  styleUrl: './edit-recipe-form.component.scss',
 })
-export class CreateRecipeFormComponent {
+export class EditRecipeFormComponent {
   constructor(public dialog: MatDialog) {}
 
   recipeItem: any = {

@@ -1,4 +1,4 @@
-<h1 class="text-center pt-5">Create Recipe</h1>
+<h1 class="text-center pt-5">Update Recipe : 3</h1>
 <form (ngSubmit)="onSubmit()" class="w-[27rem] p-6 rounded-lg shadow-md">
   <div class="mb-4">
     <mat-form-field class="w-full">
@@ -6,7 +6,7 @@
       <input
         matInput
         placeholder="Title"
-        value=""
+        value="recipeItem.title"
         name="title"
         [(ngModel)]="recipeItem.title"
         class="py-2 px-3 text-gray-200"
@@ -18,7 +18,7 @@
       <input
         matInput
         placeholder="Description"
-        value=""
+        value="recipeItem.description"
         name="description"
         [(ngModel)]="recipeItem.description"
         class="py-2 px-3 text-gray-200"
@@ -30,7 +30,7 @@
       <input
         matInput
         placeholder="Image"
-        value=""
+        value="recipeItem.image"
         name="image"
         [(ngModel)]="recipeItem.image"
         class="py-2 px-3 text-gray-200"
@@ -41,6 +41,7 @@
       name="foodType"
       [(ngModel)]="recipeItem.foodType"
       class="flex justify-around"
+      value="recipeItem.foodType"
     >
       <mat-radio-button value="veg">Vegitarian</mat-radio-button>
       <mat-radio-button value="non_veg">Non Vegitarian</mat-radio-button>

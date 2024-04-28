@@ -1,0 +1,123 @@
+<div class="flex justify-center items-center h-full">
+  <div class="container">
+    <div class="cover" [ngClass]="{ 'rotate-active': isRegistered }">
+      <div class="front">
+        <img
+          src="https://cdn.pixabay.com/photo/2024/04/04/16/37/ai-generated-8675450_640.jpg"
+          alt=""
+        />
+        <div class="text">
+          <span class="text1"
+            >Share, Savor, and Create: Your Recipe Haven Awaits!</span
+          >
+          <span class="text2"> Let's get connected </span>
+        </div>
+      </div>
+      <div class="back">
+        <img
+          src="https://cdn.pixabay.com/photo/2024/04/05/16/27/ai-generated-8677682_640.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="form h-full">
+      <div class="form-content h-full">
+        <div class="login-form">
+          <h1 class="text-lg font-bold text-center pb-8">Register</h1>
+          <form
+            (ngSubmit)="handleRegister()"
+            class=""
+            [formGroup]="registerForm"
+          >
+            <div class="mb-4">
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Full Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Full Name"
+                  formControlName="fullName"
+                  class="py-2 px-3 text-gray-200"
+                />
+              </mat-form-field>
+
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Email</mat-label>
+                <input
+                  matInput
+                  placeholder="Email"
+                  formControlName="email"
+                  class="py-2 px-3 text-gray-200"
+                />
+              </mat-form-field>
+
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Password</mat-label>
+                <input
+                  matInput
+                  placeholder="password"
+                  formControlName="password"
+                  class="py-2 px-3 text-gray-200"
+                />
+              </mat-form-field>
+            </div>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              class="w-full"
+            >
+              Register
+            </button>
+          </form>
+          <div class="flex items-center justify-center gap-2">
+            Have an account?
+            <button (click)="togglePanel()" mat-button color="primary" class="">
+              Signin
+            </button>
+          </div>
+        </div>
+        <div class="register-form">
+          <h1 class="text-lg font-bold text-center pb-8">Login</h1>
+          <form (ngSubmit)="handleLogin()" class="" [formGroup]="loginForm">
+            <div class="mb-4">
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Email</mat-label>
+                <input
+                  matInput
+                  placeholder="Email"
+                  formControlName="email"
+                  class="py-2 px-3 text-gray-200"
+                />
+              </mat-form-field>
+
+              <mat-form-field class="w-full">
+                <mat-label class="text-gray-200">Password</mat-label>
+                <input
+                  matInput
+                  placeholder="password"
+                  formControlName="password"
+                  class="py-2 px-3 text-gray-200"
+                />
+              </mat-form-field>
+            </div>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              class="w-full"
+            >
+              Login
+            </button>
+          </form>
+          <div class="flex items-center justify-center gap-2">
+            Don't have an account ?
+            <button (click)="togglePanel()" mat-button color="primary" class="">
+              Signup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

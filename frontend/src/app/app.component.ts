@@ -4,11 +4,18 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, HomePageComponent],
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    FooterComponent,
+    HomePageComponent,
+    AuthComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
