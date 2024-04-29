@@ -65,18 +65,18 @@ export class RecipeServiceService {
       );
   }
 
-  deleteRecipe(recipeId: any): Observable<any> {
+  deleteRecipe(id: any): Observable<any> {
     const headers = this.getHeaders();
     return this.http
-      .delete(`${this.baseUrl}/api/delete-recipe/${recipeId}`, {
-        headers,
-      })
+      .delete(`${this.baseUrl}/api/delete-recipe/${id}`, { headers })
       .pipe(
-        tap((deletedRecipe: any) => {
+        tap((deleteRecipe: any) => {
+          console.log('hey');
           const currentState = this.recipeSubject.value;
           const updatedRecipes = currentState.recipes.filter(
-            (item: any) => item.id !== recipeId
+            (item: any) => item.id !== id
           );
+          console.log(updatedRecipes);
           this.recipeSubject.next({ ...currentState, recipes: updatedRecipes });
         })
       );
@@ -85,9 +85,11 @@ export class RecipeServiceService {
   likeRecipe(recipe: any): Observable<any> {
     const headers = this.getHeaders();
     return this.http
-      .put(`${this.baseUrl}/api/like-unlike-recipe?recipeId=${recipe.id}`, {
-        headers,
-      })
+      .put(
+        `${this.baseUrl}/api/like-unlike-recipe?recipeId=${recipe.id}`,
+        {},
+        { headers }
+      )
       .pipe(
         tap((updatedRecipe: any) => {
           const currentState = this.recipeSubject.value;

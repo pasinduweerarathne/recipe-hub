@@ -1,38 +1,54 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{ recipe.user.fullName }}</mat-card-title>
-    <mat-card-subtitle
-      >&#64;{{
-        recipe.user.fullName.split(" ")[0].toLowerCase()
-      }}</mat-card-subtitle
-    >
-  </mat-card-header>
-  <img
-    mat-card-image
-    [src]="recipe.image"
-    alt="Photo of a Shiba Inu"
-    class="max-h-[400px] object-cover object-top"
-  />
-  <mat-card-content class="my-5">
-    <p class="text-[30px] font-bold tracking-wide">
-      {{ recipe.title | titlecase }}
-    </p>
-    <p>{{ recipe.description }}</p>
-  </mat-card-content>
-  <hr />
-  <mat-card-actions class="mx-auto">
-    <button mat-icon-button>
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button (click)="handleOpenEditRecipeForm()">
-      <mat-icon>edit</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>share</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>delete</mat-icon>
-    </button>
-  </mat-card-actions>
+  <div>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ recipe.user.fullName }}</mat-card-title>
+      <mat-card-subtitle
+        >&#64;{{
+          recipe.user.fullName.split(" ")[0].toLowerCase()
+        }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="recipe.image"
+      alt="Photo of a Shiba Inu"
+      class="h-[300px] w-[300px] object-cover"
+    />
+    <mat-card-content class="mt-[16px]">
+      <p class="text-[30px] font-bold tracking-wide p-0">
+        {{ recipe.title | titlecase }}
+      </p>
+      <p class="line-clamp-3">{{ recipe.description }}</p>
+    </mat-card-content>
+  </div>
+
+  <div>
+    <hr />
+    <mat-card-actions class="flex justify-between">
+      <div class="flex">
+        <div class="flex items-center text-2xl relative">
+          <button (click)="handleLike()" mat-icon-button>
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <span class="absolute -right-1">
+            {{ recipe.likes.length }}
+          </span>
+        </div>
+
+        <button mat-icon-button>
+          <mat-icon>share</mat-icon>
+        </button>
+      </div>
+
+      <div>
+        <button mat-icon-button (click)="handleOpenEditRecipeForm()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="handleDeleteRecipe()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+  </div>
 </mat-card>

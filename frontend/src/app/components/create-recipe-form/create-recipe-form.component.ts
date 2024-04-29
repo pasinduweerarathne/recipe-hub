@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialog } from '@angular/material/dialog';
+import { RecipeServiceService } from '../../services/recipe/recipe-service.service';
 
 @Component({
   selector: 'app-create-recipe-form',
@@ -22,7 +23,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './create-recipe-form.component.scss',
 })
 export class CreateRecipeFormComponent {
-  constructor(public dialog: MatDialog) {}
+  constructor(private recipeService: RecipeServiceService) {}
 
   recipeItem: any = {
     title: '',
@@ -33,5 +34,9 @@ export class CreateRecipeFormComponent {
 
   onSubmit() {
     console.log('values', this.recipeItem);
+    this.recipeService.createRecipe(this.recipeItem).subscribe({
+      next: (data) => console.log(data),
+      error: (error) => console.error(error),
+    });
   }
 }
