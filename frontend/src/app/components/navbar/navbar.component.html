@@ -4,8 +4,7 @@
       <span>My App</span>
     </div>
 
-    <div>
-      <span class="example-spacer"></span>
+    <div class="flex items-center">
       <button
         mat-icon-button
         class="example-icon favorite-icon"
@@ -13,13 +12,11 @@
       >
         <mat-icon>favorite</mat-icon>
       </button>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with share icon"
-      >
-        <mat-icon>share</mat-icon>
+      @if(user){
+      <button mat-button (click)="handleLogout()">
+        {{ user.fullName.split(" ")[0] }}
       </button>
+      }
     </div>
   </mat-toolbar>
 </header>

@@ -51,7 +51,7 @@ public class RecipeController {
         }
     }
 
-    @PutMapping("/update-recipe/{recipeId}")
+    @PutMapping("/")
     public ResponseEntity<?> updateRecipe(
             @RequestBody Recipe recipe,
             @PathVariable Long recipeId

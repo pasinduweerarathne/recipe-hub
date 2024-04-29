@@ -1,6 +1,6 @@
 <div class="flex flex-wrap justify-center gap-5">
   @for(item of recipes; track 1) {
-  <app-recipe-card />
+  <app-recipe-card [recipe]="item" />
   } @empty{
   <div>No recipes</div>
   }

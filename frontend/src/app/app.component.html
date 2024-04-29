@@ -2,7 +2,11 @@
   <app-navbar />
 
   <div class="flex-1 m-5">
+    @if(user) {
+    <app-home-page />
+    } @else{
     <app-auth />
+    }
   </div>
 
   <app-footer />
